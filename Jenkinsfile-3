@@ -1,0 +1,10 @@
+pipeline {
+  agent any
+  stages {
+    stage('findFiles') {
+      steps {
+        findFiles(glob: '**/images/*',excludes: '**/*.gif')
+      }
+    }
+  }
+}
