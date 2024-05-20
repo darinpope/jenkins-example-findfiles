@@ -5,7 +5,9 @@ pipeline {
       steps {
         script {
           def files = findFiles()
-          echo "${files.size()}"
+          files.each {
+            echo """${it.name}"""
+          }
         }
       }
     }
