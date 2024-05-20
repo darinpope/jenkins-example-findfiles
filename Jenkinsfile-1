@@ -3,7 +3,10 @@ pipeline {
   stages {
     stage('findFiles') {
       steps {
-        findFiles()
+        script {
+          def files = findFiles()
+          echo "${files.size()}"
+        }
       }
     }
   }
