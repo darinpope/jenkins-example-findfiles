@@ -3,7 +3,12 @@ pipeline {
   stages {
     stage('findFiles') {
       steps {
-        findFiles(glob: '**/images/*')
+        script {
+          def files = findFiles(glob: '**/images/*')
+          files.each {
+            echo """${it.name}"""
+          }
+        }
       }
     }
   }
